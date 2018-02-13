@@ -1,7 +1,7 @@
 Source: libqofono
 Section: libs
 Priority: extra
-Maintainer: Ken VanDine <ken.vandine@ubuntu.com>
+Maintainer: Adam Boardman <adamboardman@gmail.com>
 Build-Depends: debhelper (>= 9),
                pkg-config,
                qt5-default,
@@ -9,8 +9,10 @@ Build-Depends: debhelper (>= 9),
                qtdeclarative5-dev,
                qml-module-qtquick2,
                libqt5xmlpatterns5-dev,
-Standards-Version: 3.9.5
-Homepage: https://github.com/nemomobile/libqofono
+Standards-Version: 3.9.8
+Homepage: https://github.com/gemian/libqofono
+Vcs-Git: https://github.com/gemian/libqofono.git
+
 
 Package: libqofono-qt5-0
 Architecture: any

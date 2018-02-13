@@ -1,3 +1,9 @@
+libqofono (0.92+gemian) stretch; urgency=medium
+
+  * Branched for gemian and updated to upstream 0.92
+
+ -- Adam Boardman <adamboardman@gmail.com>  Tue, 13 Feb 2018 11:56:03 +0000
+
 libqofono (0.91+ubports) xenial; urgency=medium
 
   * Imported to UBports
