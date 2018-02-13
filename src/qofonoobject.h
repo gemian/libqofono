@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2014-2015 Jolla Ltd.
+** Copyright (C) 2014-2016 Jolla Ltd.
 ** Contact: slava.monich@jolla.com
 **
 ** GNU Lesser General Public License Usage
@@ -69,6 +69,7 @@ protected:
 
     void setProperty(const QString &key, const QVariant &value);
     bool setPropertySync(const QString &key, const QVariant &value);
+    void queryProperties();
 
     void removeProperty(const QString &key);
     QVariantMap getProperties() const;

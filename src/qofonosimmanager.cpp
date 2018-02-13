@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2013-2015 Jolla Ltd.
+** Copyright (C) 2013-2016 Jolla Ltd.
 ** Contact: lorn.potter@jollamobile.com
 **
 ** GNU Lesser General Public License Usage
@@ -128,7 +128,25 @@ void QOfonoSimManager::propertyChanged(const QString &property, const QVariant &
 {
     SUPER::propertyChanged(property, value);
     if (property == kPresent) {
-        Q_EMIT presenceChanged(value.toBool());
+        const bool present = value.toBool();
+        Q_EMIT presenceChanged(present);
+        if (!present) {
+            // Remove all other properties when "Present" becomes false.
+            const QStringList keys = getProperties().keys();
+            const int n = keys.count();
+            for (int i=0; i<n; i++) {
+                const QString &key = keys.at(i);
+                if (key != kPresent) {
+                    removeProperty(key);
+                }
+            }
+        } else {
+            // When SIM card is inserted, the properties appear back
+            // but no PropertyChanged event is fired to let us know
+            // what's changed and what didn't. We need to re-read the
+            // properties to keep our cached values up to date.
+            queryProperties();
+        }
     } else if (property == kSubscriberIdentity) {
         Q_EMIT subscriberIdentityChanged(value.value<QString>());
     } else if (property == kMobileCountryCode) {

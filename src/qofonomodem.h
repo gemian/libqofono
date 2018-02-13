@@ -39,6 +39,7 @@ class QOFONOSHARED_EXPORT QOfonoModem : public QOfonoObject
     Q_PROPERTY(QString revision READ revision NOTIFY revisionChanged)
     Q_PROPERTY(QString serial READ serial NOTIFY serialChanged)
     Q_PROPERTY(QString type READ type NOTIFY typeChanged)
+    Q_PROPERTY(QString softwareVersionNumber READ softwareVersionNumber NOTIFY softwareVersionNumberChanged)
 
     Q_PROPERTY(QStringList features READ features NOTIFY featuresChanged)
     Q_PROPERTY(QStringList interfaces READ interfaces NOTIFY interfacesChanged)
@@ -69,6 +70,7 @@ public:
     QString revision() const;
     QString serial() const;
     QString type() const;
+    QString softwareVersionNumber() const;
 
     QStringList features() const;
     QStringList interfaces() const;
@@ -89,6 +91,7 @@ Q_SIGNALS:
     void revisionChanged(const QString &revision);
     void serialChanged(const QString &serial);
     void typeChanged(const QString &type);
+    void softwareVersionNumberChanged(const QString &version);
     void featuresChanged(const QStringList &features);
     void interfacesChanged(const QStringList &interfaces);
     void modemPathChanged(const QString &path);

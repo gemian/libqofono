@@ -287,6 +287,13 @@ bool QOfonoObject::setPropertySync(const QString &key, const QVariant &value)
     }
 }
 
+void QOfonoObject::queryProperties()
+{
+    if (d_ptr->interface) {
+        d_ptr->getProperties(this);
+    }
+}
+
 void QOfonoObject::setProperty(const QString &key, const QVariant &value)
 {
     if (d_ptr->interface) {
